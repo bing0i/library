@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
         <title>Courgette's book library</title>
-        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
-        
+        <form>
+            <fieldset>
+                <legend>ADD NEW BOOK</legend>
+                <label for="title">TITLE</label>
+                <input type="text" id="title" name="title">
+                <label for="author">AUTHOR</label>
+                <input type="text" id="author" name="author">
+                <label for="pages">PAGES</label>
+                <input type="text" id="pages" name="pages">
+                <label for="read">READ</label>
+                <input type="text" id="read" name="read"><br>
+                <button type="button" id="btnAdd">ADD</button>
+            </fieldset>
+        </form>
+        <script src="scripts.js"></script>
     </body>
 </html>
