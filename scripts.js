@@ -18,8 +18,14 @@ function addBookToLibrary() {
                                 document.querySelector('#author').value,
                                 document.querySelector('#pages').value, 
                                 document.querySelector('#read').value)
-        myLibrary.push(newBook)
-        render(newBook, myLibrary.length - 1)
+        let index = myLibrary.indexOf(null)
+        if (index > -1)
+            myLibrary[index] = newBook
+        else {
+            myLibrary.push(newBook)
+            index = myLibrary.length - 1
+        }
+        render(newBook, index)
         console.log(myLibrary)
     })
 }
@@ -40,10 +46,12 @@ function render(newBook, index) {
     btnRemove.setAttribute('id', index.toString())
     btnRemove.textContent = "Remove"
     btnRemove.addEventListener('click', () => {
-        myLibrary.splice(parseInt(btnRemove.id), 1)
+        myLibrary[index] = null
+        document.querySelector('#tbodyBook').removeChild(document.querySelector('#tr' + btnRemove.id))
         console.log(myLibrary)
     })
 
+    tr.setAttribute('id', 'tr' + index.toString())
     tr.appendChild(btnRemove)
     tbodyBook.appendChild(tr)
 }
