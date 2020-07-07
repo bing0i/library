@@ -1,4 +1,168 @@
-body, #btnAdd
-{
-    font-family: 'Teko', sans-serif;
+body {
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    text-align: center;
+    background-color: #252a34;
+}
+
+h1 {
+    color: #ffdc34;
+    text-shadow: 2px 2px #eb4a5f;
+    text-align: center;
+}
+
+h1:hover {
+    color: #eb4a5f;
+    text-shadow: 2px 2px #ffdc34;
+}
+
+form {
+    margin: 0px 750px;
+    margin-bottom: 40px;
+}
+
+legend {
+    font-size: 25px;
+    color: #ffdc34;
+    text-shadow: -2px 2px #2a363b;
+}
+
+fieldset {
+    background-color: #eb4a5f;
+    color: #2a363b;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+fieldset:hover {
+    border: 2px solid #eb4a5f;
+    box-shadow: 3px 3px #ffdc34;
+}
+
+input[type=text] {
+    text-align: center;
+    width: 50%;
+    font-size: 16px;
+    background-color: #feceab;
+    color: #2a363b;
+    margin: 20px 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+input[type=text]:hover {
+    box-shadow: 2px 2px #2a363b;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 5px;
+    font-size: 25px;
+    color: #09A599;
+}
+
+th {
+    padding: 10px 100px;
+    color: #ffdc34;
+    text-shadow: 1px 1px #eb4a5f;
+    font-size: 18px;
+}
+
+th:hover {
+    color: #eb4a5f;
+    text-shadow: 1px 1px #ffdc34;
+}
+
+tr:hover {
+    background-color: #eaeaea;
+    color: #ff2e63;
+}
+
+tr:first-child:hover {
+    background-color: #252a34;
+}
+
+td {
+    font-family: 'Pacifico', cursive;
+    border-radius: 5px;
+    padding: 0px 0px;
+}
+
+button {
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #303841;
+    padding: 0px 10px;
+    margin: 5px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.btnRemove {
+    color: #ff2e63;
+}
+
+.btnRemove:hover {
+    background-color: #ff2e63;
+    color: #110133;
+}
+
+#btnR {
+    padding: 0px 80px;
+    color: #49d292;
+    background-color: #2a363b;
+    margin: 15px 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px #2a363b;
+    font-family: 'Pacifico', cursive;
+    font-size: 17px;
+}
+
+#btnR:hover {
+    box-shadow: 2px 2px #ffdc34
+}
+
+#btnAdd {
+    color: #ffdc34;
+    background-color: #2a363b;
+    padding: 0px 20px;
+    margin: 15px 10px;
+}
+
+#btnAdd:hover {
+    background-color: #49d292;
+    color: #110133;
+}
+
+.btnYes {
+    background-color: #2a363b;
+    color: #49d292;
+}
+
+.btnYes:hover {
+    background-color: #49d292;
+    color: #2a363b;
+}
+
+.btnNo {
+    background-color: #2a363b;
+    color: #ff2e63;
+}
+
+.btnNo:hover {
+    background-color: #ff2e63;
+    color: #2a363b;
 }

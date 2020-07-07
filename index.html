@@ -3,36 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
-        <title>Courgette's book library</title>
-        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
-    </head>
+        <title>Courgette's library</title>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <body>
+        <h1>LIBRARY</h1>
         <form>
             <fieldset>
-                <legend>ADD NEW BOOK</legend>
-                <label for="title">TITLE</label>
-                <input type="text" id="title" name="title">
-                <label for="author">AUTHOR</label>
-                <input type="text" id="author" name="author">
-                <label for="pages">PAGES</label>
-                <input type="text" id="pages" name="pages">
-                <label for="read">READ</label>
-                <input type="text" id="read" name="read"><br>
-                <button type="button" id="btnAdd">ADD</button>
+                <legend>Add New Book</legend>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" autocomplete="off"><br>
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" autocomplete="off"><br>
+                <label for="pages">Pages</label>
+                <input type="text" id="pages" name="pages" autocomplete="off"><br>
+                <label for="read">Read</label>
+                <button type="button" id="btnR">Yes</button><br>
+                <!-- <input type="text" id="read" name="read" autocomplete="off"><br> -->
+                <button type="button" id="btnAdd">+</button>
             </fieldset>
         </form>
         <table>
-            <thead>
-                <tr>
-                    <th>LIBRARY</th>
-                </tr>
-            </thead>
             <tbody id="tbodyBook">
-                <tr>
-                    <th>TITLE</th>
-                    <th>AUTHOR</th>
-                    <th>PAGES</th>
-                    <th>READ</th>
+                <tr id="trHeader">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read</th>
+                    <th>Remove</th>
                 </tr>
             </tbody>
         </table>
