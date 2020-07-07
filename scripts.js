@@ -12,12 +12,19 @@ Book.prototype.info = function() {
 let myLibrary = []
 
 function addBookToLibrary() {
+    toggleBtnR()
     const btnAdd = document.querySelector('#btnAdd');
     btnAdd.addEventListener('click', () =>  {
+        let read = "";
+        let btnR = document.querySelector('#btnR')
+        if (btnR.textContent === "Yes")
+            read = "true"
+        else
+            read = "false"
         let newBook = new Book(document.querySelector('#title').value, 
                                 document.querySelector('#author').value,
                                 document.querySelector('#pages').value, 
-                                document.querySelector('#read').value)
+                                read)
         let index = myLibrary.indexOf(null)
         if (index > -1)
             myLibrary[index] = newBook
@@ -26,7 +33,6 @@ function addBookToLibrary() {
             index = myLibrary.length - 1
         }
         render(newBook, index)
-        console.log(myLibrary)
     })
 }
 
@@ -34,9 +40,35 @@ function render(newBook, index) {
     let tbodyBook = document.querySelector('#tbodyBook')
     let tr = document.createElement('tr')
     let td = document.createElement('td')
+    let btnRead = document.createElement('button')
+
     for(let prop in newBook) {
         if (newBook.hasOwnProperty(prop)) {
-            td.textContent = newBook[prop]
+            if (prop === "read") {
+                btnRead.setAttribute('id', index.toString())
+                if (newBook[prop] === "true") {
+                    btnRead.setAttribute('class', 'btnYes')
+                    btnRead.textContent = "Yes"
+                } else {
+                    btnRead.setAttribute('class', 'btnNo')
+                    btnRead.textContent = "No"
+                }
+                btnRead.addEventListener('click', () => {
+                    if (myLibrary[Number(btnRead.id)].read === "true") {
+                        myLibrary[Number(btnRead.id)].read = "false"
+                        btnRead.textContent = "No"
+                        btnRead.setAttribute('class', 'btnNo')
+                    } else {
+                        myLibrary[Number(btnRead.id)].read = "true"
+                        btnRead.textContent = "Yes"
+                        btnRead.setAttribute('class', 'btnYes')
+                    }
+                })
+                td.appendChild(btnRead)
+            }
+            else {
+                td.textContent = newBook[prop]
+            }
             tr.appendChild(td)
             td = document.createElement('td')
         }
@@ -44,16 +76,31 @@ function render(newBook, index) {
 
     let btnRemove = document.createElement('button')
     btnRemove.setAttribute('id', index.toString())
-    btnRemove.textContent = "Remove"
+    btnRemove.setAttribute('class', 'btnRemove')
+    btnRemove.textContent = "-"
     btnRemove.addEventListener('click', () => {
-        myLibrary[index] = null
-        document.querySelector('#tbodyBook').removeChild(document.querySelector('#tr' + btnRemove.id))
-        console.log(myLibrary)
+        myLibrary[Number(btnRemove.id)] = null
+        tbodyBook.removeChild(document.querySelector('#tr' + btnRemove.id))
     })
+    td = document.createElement('td')
+    td.appendChild(btnRemove)
+    tr.appendChild(td)
 
     tr.setAttribute('id', 'tr' + index.toString())
-    tr.appendChild(btnRemove)
     tbodyBook.appendChild(tr)
+}
+
+function toggleBtnR() {
+    let btnR = document.querySelector('#btnR')
+    btnR.addEventListener('click', () => {
+        if (btnR.textContent === "Yes") {
+            btnR.textContent = "No"
+            btnR.style.color = "#ff2e63"
+        } else if (btnR.textContent === "No") {
+            btnR.textContent = "Yes"
+            btnR.style.color = "#49d292"
+        }
+    })
 }
 
 addBookToLibrary()
